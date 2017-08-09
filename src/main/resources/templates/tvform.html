@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="css/showform.css" rel="stylesheet">
+        <title>Add TV Show Information</title>
+
+
+    </head>
+    <body>
+    <div class="transbox">
+        <div class="container" >
+    <!-- Form is used to help the user to insert there information and also has validation that tell the user the value they entered is correct or not -->
+        <h1>TV Show Registration Form</h1>
+        <form action="#" th:action="@{/tvform}" th:object="${tvshow}" method="post">
+            <p>Enter Tv Show Id:<input type="text" th:field="*{id}" />
+                <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-primary">Error Id</span>
+            </p>
+            <p>Enter TV Show Name:<input type="text" th:field="*{names}" />
+                <span th:if="${#fields.hasErrors('names')}" th:errors="*{names}" class="text-primary">Error Name</span>
+            </p>
+            <p>Enter TV Show Type:<input type="text" th:field="*{type}" />
+                <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="text-primary">Error Type</span>
+            </p>
+            <p>Enter Show Description:<textarea rows="3"  th:field="*{description}" />
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-primary">Error Description</span>
+            </p>
+            <p>
+                <input type="submit" value="Submit" />
+
+            </p>
+        </form>
+        </div>
+    </div>
+    </body>
+</html>
